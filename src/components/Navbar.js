@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 function Navbar(){
     return(
-        <nav>
+        <nav className="MainNav">
             <ul>
                 <li>
                     <Link to={"/"}>Home</Link>
