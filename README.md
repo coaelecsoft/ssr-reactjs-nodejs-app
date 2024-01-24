@@ -1,3 +1,4 @@
+#include <stdio.h>
 # Website development SSR React App
 # SSR React.js, Node.js
 
