@@ -5,9 +5,10 @@ import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
-import App from "./src/App";
+import App from "../src/App";
 
 const app = express();
+//seting port
 const port = 3000;
 const router = express.Router(); 
 
@@ -28,7 +29,6 @@ app.use((req, res, next)=>{
 });
 
 app.get( '*', (req, res) => { 
-
     const title = 'SSR React on Node.js server';
     const context=[];
     const app = ReactDOMServer.renderToString(
@@ -38,7 +38,6 @@ app.get( '*', (req, res) => {
     )
     //definise putanju html dokumenta
     const indexFile = path.resolve('./server/index.html');
-
     //poziva html datoteku u kojoj će renderovati React App
     fs.readFile(indexFile, 'utf8', (err, data)=>{
         if(err){
@@ -50,18 +49,12 @@ app.get( '*', (req, res) => {
             data.replace('</head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div>', `
             <title>${title}</title></head><body><div id="root">${app}</div>`)
         );
-    });
-    
+    });    
 });
-
-
 
 router.use(express.static(path.resolve(__dirname, "..", "build"), {maxAge:'1d'}));
 
-
 app.use(router);
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

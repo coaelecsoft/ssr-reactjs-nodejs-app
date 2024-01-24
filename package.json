@@ -17,13 +17,13 @@
     "react-scripts": "5.0.1",
     "sass": "^1.70.0",
     "web-vitals": "^2.1.4"
-  },
+  }, 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ssr": "nodemon server/index.js"
+    "ssr": "nodemon index.js"
   },
   "eslintConfig": {
     "extends": [
